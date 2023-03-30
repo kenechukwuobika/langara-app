@@ -1,38 +1,741 @@
-.App {
-  text-align: center;
-}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+html {
+  font-size: 40%;
+  scroll-behavior: smooth; }
+  @media only screen and (min-width: 24.375em) {
+    html {
+      font-size: 62.5%; } }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+body {
+  font-family: barlow, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: #F2F5F7; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.body-inactive {
+  overflow-y: hidden; }
+
+.legal-list {
+  margin-left: 2.6em; }
+
+.container {
+  flex: 1;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 36.0rem !important; }
+  @media only screen and (min-width: 36em) {
+    .container {
+      max-width: 48.0rem !important; } }
+  @media only screen and (min-width: 48em) {
+    .container {
+      max-width: 100rem !important; } }
+  @media only screen and (min-width: 90em) {
+    .container {
+      max-width: 143.4rem !important; } }
+  .container-fluid {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto; }
+
+.row, .row-sm, .row-sm-reverse, .row-md, .row-md-reverse, .row-lg, .row-lg-reverse, .row-xl, .row-xl-reverse {
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  flex-wrap: wrap; }
+  .row [class^="col-"], .row-sm [class^="col-"], .row-sm-reverse [class^="col-"], .row-md [class^="col-"], .row-md-reverse [class^="col-"], .row-lg [class^="col-"], .row-lg-reverse [class^="col-"], .row-xl [class^="col-"], .row-xl-reverse [class^="col-"] {
+    padding: 1.5em; }
+  .row-reverse {
+    flex-direction: row-reverse; }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-1 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (1/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-2 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (2/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-3 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (3/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-4 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (4/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-5 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (5/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-6 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (6/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-7 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (7/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-8 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (8/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-9 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (9/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-10 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (10/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-11 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (11/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm {
+      flex-direction: row; }
+      .row-sm .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 24.375em) {
+    .row-sm-reverse {
+      flex-direction: row-reverse; }
+      .row-sm-reverse .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md {
+      flex-direction: row; }
+      .row-md .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 36em) {
+    .row-md-reverse {
+      flex-direction: row-reverse; }
+      .row-md-reverse .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg {
+      flex-direction: row; }
+      .row-lg .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 48em) {
+    .row-lg-reverse {
+      flex-direction: row-reverse; }
+      .row-lg-reverse .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl {
+      flex-direction: row; }
+      .row-xl .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
+  @media only screen and (min-width: 90em) {
+    .row-xl-reverse {
+      flex-direction: row-reverse; }
+      .row-xl-reverse .col-12 {
+        min-width: 0;
+        width: 100%;
+        flex: 0 0 calc( (12/ 12) * 100%); } }
 
-.App-link {
-  color: #61dafb;
-}
+.flex {
+  display: flex; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.header {
+  background-color: white; }
+
+.nav {
+  display: flex;
+  justify-content: space-between; }
+  .nav__list {
+    list-style: none;
+    display: flex; }

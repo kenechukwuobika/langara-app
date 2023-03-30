@@ -1,0 +1,14 @@
+.header {
+    background-color: white;
+    // box-shadow: ;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+
+    &__list {
+        list-style: none;
+        display: flex;
+    }
+}
