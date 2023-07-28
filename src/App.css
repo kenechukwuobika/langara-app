@@ -13,16 +13,152 @@ html {
       font-size: 62.5%; } }
 
 body {
-  font-family: barlow, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-family: "roboto", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2.4rem;
   font-weight: 400;
-  overflow-x: hidden;
-  background-color: #F2F5F7; }
+  overflow-x: hidden; }
 
 .body-inactive {
   overflow-y: hidden; }
 
 .legal-list {
   margin-left: 2.6em; }
+
+.heading {
+  color: #1E798D;
+  font-size: 4.2rem;
+  margin-bottom: 1.5rem; }
+  @media only screen and (min-width: 48em) {
+    .heading {
+      font-size: 4.8rem; } }
+  .heading__container {
+    max-width: max-content;
+    margin-bottom: 4rem; }
+  .heading__line {
+    border-bottom: 0.6rem solid #f77b2f;
+    width: 40%; }
+  .heading__center {
+    display: flex;
+    justify-content: center; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif; }
+
+.t--secondary {
+  color: #f77b2f;
+  font-weight: 800; }
+
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 700;
+  max-width: 33.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8.5rem;
+  border-radius: 1.5rem;
+  transform: translateY(0);
+  transition: all ease-in .2s; }
+  .btn > *:not(:last-child) {
+    margin-right: 2rem; }
+  .btn:hover {
+    transform: translateY(-0.4rem); }
+  .btn:focus {
+    transform: translateY(0rem); }
+  .btn--solid {
+    background-color: #f77b2f;
+    border: none; }
+  .btn--hollow {
+    background-color: transparent;
+    border: 0.4rem solid #f77b2f; }
+  .btn__icon {
+    width: 3.7rem;
+    height: 2.6rem; }
+    @media only screen and (min-width: 48em) {
+      .btn__icon {
+        width: 3.7rem;
+        height: 2.6rem; } }
+
+.card__info {
+  position: relative;
+  width: 100%;
+  height: 12.2rem;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+  .card__info:not(:last-of-type) {
+    margin-bottom: 4rem; }
+  @media only screen and (min-width: 90em) {
+    .card__info {
+      max-width: 100%; } }
+  .card__info--icon {
+    position: absolute;
+    right: 22px;
+    top: -22px;
+    z-index: 3; }
+
+.card__offset {
+  position: relative; }
+  .card__offset--front {
+    position: relative;
+    z-index: 2; }
+  .card__offset--back {
+    background-color: #1E798D;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    z-index: 1;
+    border-radius: 0.9rem; }
+  .card__offset--wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0.1rem solid #1E798D;
+    background-color: white;
+    border-radius: 0.9rem;
+    z-index: 2;
+    padding: 2rem 1.6rem; }
+  .card__offset--content {
+    max-width: 100%; }
+  .card__offset--title {
+    color: #1E798D;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    margin-bottom: 0.8rem;
+    text-align: center; }
+    @media only screen and (min-width: 90em) {
+      .card__offset--title {
+        margin-bottom: 1.2rem;
+        font-size: 3.2rem; } }
+  .card__offset--text {
+    font-size: 1.4rem; }
+    @media only screen and (min-width: 90em) {
+      .card__offset--text {
+        font-size: 2rem; } }
+
+.member {
+  text-align: center; }
+  .member__img {
+    margin-bottom: 4rem; }
+  .member__name {
+    font-size: 3.2rem;
+    color: #f77b2f;
+    margin-bottom: 2rem; }
+  .member__title {
+    color: #424B5A;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem; }
+  .member__description {
+    font-size: 2rem; }
 
 .container {
   flex: 1;
@@ -731,11 +867,184 @@ body {
   display: flex; }
 
 .header {
-  background-color: white; }
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8rem; }
 
 .nav {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  padding: 0 1.5em; }
+  .nav__menu {
+    display: block; }
+    @media only screen and (min-width: 48em) {
+      .nav__menu {
+        display: none; } }
   .nav__list {
     list-style: none;
-    display: flex; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    @media only screen and (min-width: 48em) {
+      .nav__list {
+        flex-direction: row;
+        height: 8rem;
+        width: auto;
+        position: relative; } }
+  .nav__item {
+    font-size: 6.4rem; }
+    .nav__item:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 10rem; }
+      @media only screen and (min-width: 48em) {
+        .nav__item:not(:last-child) {
+          font-size: 2.4rem;
+          margin-bottom: 0;
+          margin-right: 5rem; } }
+    @media only screen and (min-width: 48em) {
+      .nav__item {
+        font-size: 2.4rem; } }
+  .nav__link {
+    text-decoration: none;
+    color: #1E798D; }
+  .nav__cta {
+    text-decoration: none;
+    background-color: #f77b2f;
+    color: white;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21.4rem; }
+
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+  margin-top: -8rem;
+  background-image: linear-gradient(to right top, rgba(32, 33, 41, 0.84), rgba(30, 121, 141, 0.84)), url(../src/assets/images/helena-lopes-PGnqT0rXWLs-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+  @media only screen and (min-width: 48em) {
+    .banner {
+      height: 68rem; } }
+  .banner__content {
+    max-width: 84rem;
+    width: 100%; }
+  .banner__h1 {
+    font-size: 4.2rem;
+    color: white;
+    font-family: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    margin-bottom: 4rem;
+    text-align: center; }
+    @media only screen and (min-width: 48em) {
+      .banner__h1 {
+        font-size: 5.8rem;
+        text-align: left; } }
+  .banner__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    @media only screen and (min-width: 48em) {
+      .banner__btn {
+        flex-direction: row;
+        justify-content: flex-start; } }
+    .banner__btn > *:not(:last-child) {
+      margin-bottom: 4rem;
+      margin-right: 0; }
+      @media only screen and (min-width: 48em) {
+        .banner__btn > *:not(:last-child) {
+          margin-right: 4rem;
+          margin-bottom: 0; } }
+
+.overview {
+  line-height: 150%;
+  margin-bottom: 8rem; }
+  .overview__h4 {
+    font-size: 3.6rem;
+    margin-bottom: 4rem; }
+  .overview__text:not(:last-child) {
+    margin-bottom: 4rem; }
+
+.team {
+  margin-bottom: 8rem; }
+  .team__container {
+    position: relative; }
+  .team__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1E798D;
+    padding: 6rem; }
+    @media only screen and (min-width: 90em) {
+      .team__right {
+        padding: 0;
+        padding-left: 6rem;
+        height: 78.6rem;
+        max-width: 82.4rem; } }
+    .team__right--container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      @media only screen and (min-width: 90em) {
+        .team__right--container {
+          height: 78.6rem;
+          max-width: 46rem; } }
+  .team__text {
+    color: white;
+    margin-bottom: 8rem; }
+  .team__img {
+    max-width: 82.4rem;
+    margin-bottom: 8rem; }
+    @media only screen and (min-width: 90em) {
+      .team__img {
+        margin-bottom: 0;
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translate(-50%, -50%); } }
+
+.intro__content:not(:last-child) {
+  margin-bottom: 8rem; }
+
+.intro__img {
+  max-width: 100%; }
+
+.table {
+  width: 100%;
+  empty-cells: hide;
+  padding: 0 2rem;
+  border-collapse: separate;
+  border-spacing: 0 20px; }
+
+.th1 {
+  background-color: #1E798D;
+  color: white;
+  height: 10.8rem; }
+  .th1 > *:first-child {
+    border-top-left-radius: 20px; }
+  .th1 > *:last-child {
+    border-top-right-radius: 20px; }
+
+.th2 {
+  background-color: #424B5A;
+  color: white;
+  height: 5rem; }
+
+td {
+  padding: 2rem; }

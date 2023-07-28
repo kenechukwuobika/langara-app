@@ -1,0 +1,24 @@
+.member {
+    text-align: center;
+
+    &__img {
+        margin-bottom: 4rem;
+    }
+
+    &__name {
+        font-size: 3.2rem;
+        color: map-get($colors, secondary );
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        color: #424B5A;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    &__description {
+        font-size: 2rem;
+    }
+}

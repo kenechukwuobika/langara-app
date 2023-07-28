@@ -22,11 +22,11 @@ html {
 }
 
 body {
-  font-family: $barlow;
+  font-family: $roboto;
+  font-size: 2.4rem;
   font-weight: 400;
   overflow-x: hidden;
   color: map-get($colors, deep-sea);
-  background-color: map-get($colors, background);
 }
 
 .body-inactive{

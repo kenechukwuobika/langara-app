@@ -1,0 +1,31 @@
+.table {
+    width: 100%;
+    empty-cells: hide;
+    padding: 0 2rem;
+    border-collapse:separate;
+    border-spacing:0 20px;
+}
+
+.th1 {
+    background-color: map-get($colors, 'primary' );
+    color: white;
+    height: 10.8rem;
+    
+    & > *:first-child {
+        border-top-left-radius: 20px;
+    }
+
+    & > *:last-child {
+        border-top-right-radius: 20px;
+    }
+}
+
+.th2 {
+    background-color: map-get($colors, grey );
+    color: white;
+    height: 5rem;
+}
+
+td {
+    padding: 2rem;
+}

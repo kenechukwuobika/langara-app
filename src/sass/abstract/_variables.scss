@@ -6,17 +6,11 @@ $gutter-horizontal: 1.5em;
 
 /// Colors
 $colors: (
-  primary: #FF8362,
-  secondary: #5D61C4,
-  tertiary: #064755,
-  tertiaryLight: #1E798D,
-  error: #DB1341,
-  success: #3C9680,
-  successDark: #268CA3,
-  surface: #FFFFFF,
+  primary: #1E798D,
+  secondary: #f77b2f,
   background: #F2F5F7,
-  onBackground: #424B5A,
-  onBackground2: #767676
+  grey: #424B5A,
+  white: #FFFFFF,
 );
 
 /// Spacers
@@ -51,5 +45,5 @@ $cta-gradient-active: linear-gradient(180deg, #f13159 0%, #e4002f 13.02%, #e4002
 $cta-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
 /// Fonts stack
-$space-grotesk: "Space Grotesk", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$barlow: barlow, Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+$roboto: "roboto", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$LibreBaskerville: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;

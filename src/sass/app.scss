@@ -2,6 +2,15 @@
 @import './abstract/variables';
 
 @import './base/base';
+@import './base/typography';
+
+@import './components/btn';
+@import './components/card';
+@import './components/member';
 
 @import './layout/grid';
 @import './layout/header';
+
+@import './pages/home';
+@import './pages/intoduction';
+@import './pages/results';

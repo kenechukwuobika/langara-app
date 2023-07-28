@@ -1,14 +1,79 @@
 .header {
     background-color: white;
-    // box-shadow: ;
+    box-shadow: $cta-shadow;
+    margin-bottom: 8rem;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    font-family: $LibreBaskerville;
+    padding: 0 1.5em;
+    
+    &__menu {
+        display: block;
+
+        @include respond(lg) {
+            display: none;
+        }
+    }
 
     &__list {
         list-style: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        @include respond(lg) {
+            flex-direction: row;
+            height: 8rem;
+            width: auto;
+            position: relative;
+        }
+    }
+
+    &__item {
+        font-size: 6.4rem;
+
+        &:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 10rem;
+            
+            @include respond(lg) {
+                font-size: 2.4rem;
+                margin-bottom: 0;
+                margin-right: 5rem;
+            }
+        }
+
+        @include respond(lg) {
+            font-size: 2.4rem;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: map-get($colors, 'primary');
+    }
+
+    &__cta {
+        text-decoration: none;
+        background-color: map-get($colors, 'secondary');
+        color: white;
+        align-self: stretch;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 21.4rem;
     }
 }
