@@ -1,6 +1,6 @@
 const Heading = props => {
 
-    const { text, color, center } = props;
+    const { text, color } = props;
 
     return (
         <div className="heading__container">

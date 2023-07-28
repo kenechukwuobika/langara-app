@@ -83,7 +83,7 @@ const Home = () => {
                                         
                                         <p className="team__text">Despite a significant increase in international students (IS) coming to Canada in recent years, very little is known about them and their immigration pathways. We know some students are successful in achieving their intended study, employment, and immigration outcomes </p>
                                         
-                                        <img className="team__img" src={teamImage} />
+                                        <img className="team__img" src={teamImage} alt={teamImage} />
 
                                         <Button
                                             onClick={() => history('/team')}

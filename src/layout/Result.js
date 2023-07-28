@@ -59,7 +59,6 @@ const Result = () => {
                             {
                                 type: "td",
                                 data: ["1.One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                                data: [ "3.PNA/DNA", "650", "93.12%", "1.92%", "Total", "650", "93.12%", "1.92%"],
                             },
                             {
                                 type: "td",
@@ -81,13 +80,13 @@ const Result = () => {
     ];
 
     let { query } = useParams();
-    const [ result, setResult ] = useState(null);
+    const [ result,  ] = useState(results.find( result => result.slug === query));
     const [ currentQuestion, setCurrentQuestion ] = useState([]);
 
-    useEffect(() => {
-        const currentResult = results.find( result => result.slug === query)
-        setResult(currentResult)
-    }, [query])
+    // useEffect(() => {
+    //     const currentResult = results.find( result => result.slug === query)
+    //     setResult(currentResult)
+    // }, [])
 
     useEffect(() => {
         if(result) {

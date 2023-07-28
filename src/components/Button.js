@@ -8,7 +8,7 @@ const Button = props => {
     return (
         <button onClick={onClick} className={`btn ${className}`}>
             <span>{text}</span>
-            {icon && <img className="btn__icon" src={icon} />}
+            {icon && <img className="btn__icon" src={icon} alt={icon} />}
         </button>
     )
 }
