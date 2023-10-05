@@ -1,0 +1,38 @@
+.event {
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__text {
+        margin-bottom: 1rem;
+    }
+
+    &__link {
+        color: map-get($colors, "secondary");
+        text-transform: capitalize;
+        font-weight: 800;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+
+        &:after {
+            display:block;
+            content: '';
+            border-bottom: solid 3px map-get($colors, "secondary");
+            transform: scaleX(0);  
+            transition: transform 250ms ease-in-out;
+            transform-origin:  0% 50%;
+            padding: .3rem;
+        }
+        
+        &:hover {
+            &:after {
+                transform: scaleX(1); 
+            }
+            
+        }
+    }
+}

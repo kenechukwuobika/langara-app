@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import Card from "../components/Card";
-import Heading from "../components/Heading";
-import sample1 from "../assets/images/sample1.png";
-import sample2 from "../assets/images/sample2.png";
+import Card from "../../components/Card";
+import Heading from "../../components/Heading";
+import sample1 from "../../assets/images/sample1.png";
+import sample2 from "../../assets/images/sample2.png";
 
 const Introduction = () => {
 
@@ -50,7 +50,7 @@ const Introduction = () => {
 
                             <p className="overview__text">Despite a significant increase in international students (IS) coming to Canada in recent years, very little is known about them and their immigration pathways. We know some students are successful in achieving their intended study, employment, and immigration outcomes while others are not, but what is happening on the ground? Since the immigration trajectories of IS are not well understood, it is not possible to evaluate, much less ensure, the effectiveness or efficiency of policy and program priorities for Canada. How does the importance of educational programs, community support, and immigration policy converge with international students' status pathways?</p>
                             <p className="overview__text">The Immigration, Education & Employment Pathways research study, funded by through a College and Community Social Innovation Fund (CSIF) grant from the Natural Sciences and Engineering Research Council (NSERC)  builds on and expands current knowledge by exploring the migration, employment, and education pathways of urban and rural IS in BC. The project is organized as a joint effort between Langara College and College of New Caledonia (CNC).</p>
-                            <p className="overview__text">6926 students and recent graduates from the two colleges were invited to participate in an on-line survey to collect the necessary data. The survey was conducted in the period of February 2021 to April 2021. In addition to the quantitative data, the project team also conducted a series of interviews with </p>
+                            <p className="overview__text">6,926 students and recent graduates from the two colleges were invited to participate in an on-line survey to collect the necessary data. The survey was conducted in the period of February 2021 to April 2021. In addition to the quantitative data, the project team also conducted a series of interviews with </p>
                         </div>
 
                         <div className="intro__content">

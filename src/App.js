@@ -1,24 +1,23 @@
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import Header from './components/Header';
-import Home from './layout/Home';
-import Introduction from './layout/Introduction';
-import Result from './layout/Result';
-import Team from './layout/Team';
+import store from 'redux/store';
+
+// import Home from './views/Home';
+import AppLayout from './layout/AppLayout';
+import FrontLayout from './layout/FrontLayout';
 
 function App() {
+
     return (
-        <Router>
-            <Header />
-
-            <Routes>
-                <Route path='/' Component={Home} />
-                <Route path='/introduction' Component={Introduction} />
-                <Route path='/results/:query' Component={Result} />
-                <Route path='/team' Component={Team} />
-            </Routes>
-
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <Routes>
+                    <Route path='/*' element={<FrontLayout />} />
+                    <Route path='/app/*' element={<AppLayout />} />
+                </Routes>
+            </Router>
+        </Provider>
     );
 }
 

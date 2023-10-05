@@ -2,7 +2,6 @@
 const Button = props => {
 
     const { isHollow, icon, text, onClick } = props;
-    console.log(onClick)
     const className = isHollow ? 'btn--hollow' : 'btn--solid'
 
     return (

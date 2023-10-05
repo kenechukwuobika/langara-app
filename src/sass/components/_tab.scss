@@ -1,0 +1,53 @@
+.tab{
+    display: flex;
+    max-width: 70rem;
+    margin: 0 auto;
+    align-self: center;
+    text-transform: capitalize;
+    margin-bottom: 4rem;
+
+    &__fill{
+        box-shadow: $cta-shadow;
+        background-color: white;
+        color: map-get($colors, "secondary");
+        border-radius: .5rem;
+    }
+    
+    &__hollow{
+        font-size: 1.8rem;
+        color: var(--grey);
+        margin-bottom: 2rem;
+
+        &--active{
+            color: var(--grey-dark-text);
+        }    
+    }
+    
+    &__item{
+        width: 100%;
+        border-radius: .5rem;
+    }
+    
+    &__link{
+        padding: 2.5rem 0;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+
+        &:link,
+        &:visited{
+            text-decoration: none;
+            color: var(--grey-dark-text);
+        }
+        
+        &:hover{
+            background-color: map-get($colors, "secondary");
+            color: white;
+        }
+        
+        &--active{
+            color: white !important;
+            background-color: map-get($colors, "secondary") !important;
+        }
+    }
+}

@@ -1,19 +1,71 @@
-import React from "react";
-
-import Button from "../components/Button";
-import Heading from "../components/Heading";
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import FileSaver from 'file-saver';
 
-import cloudIcon from "../assets/icons/Icon awesome-cloud-download-alt.svg";
-import teamImage from "../assets/images/team_image.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
+import Heading from "../../components/Heading";
+import Tab from "../../components/Tab";
+
+import cloudIcon from "../../assets/icons/Icon awesome-cloud-download-alt.svg";
+import teamImage from "../../assets/images/team_image.jpg";
+import EventList from "../../components/lists/EventList";
+import { useEffect } from "react";
 
 const Home = () => {
     const history = useNavigate();
-    
-    const onExplore = () => {
-        history('/introduction')
-    }
+    const { search } = useLocation();
+    const [eventTabItem, setEventTabItem] = useState('past');
+    const [studiesTabItem, setStudiesTabItem] = useState('past');
+    const [currentEvents, setCurrentEvents] = useState(null);
+
+    const eventTabItems = ['past', 'current', 'future'];
+    const studiesTabItems = ['past', 'underway', 'planned'];
+
+    const events = [
+        {
+            text: "Presentation of Preliminary Results - June 22th 2021, Langara College Gendered experiences of South Asian international Students Studying in Two BC Colleges - March 25 th 2022, 24th Annual Metropolis Conference, Vancouver",
+            type: "past",
+        },
+        {
+            text: "24th Annual Metropolis Conference, Vancouver Gendered Experiences of South Asian international Students Studying in Two BC Colleges -  June 10th, 2022, Langara College",
+            type: "past",
+        }
+    ];
+
+    useEffect(() => {
+        if(!search) {
+            return;
+        }
+
+        const searchValue = search.toLowerCase().split('=')[1];
+
+        if(search.includes('events')) {
+            setEventTabItem(searchValue)
+        }
+
+        if(search.includes('studies')) {
+            setStudiesTabItem(searchValue)
+        }
+
+    }, [search])
+
+    useEffect(() => {
+        const keiks = events.filter(event => {
+            if(event.type === eventTabItem) {
+                return event
+            }
+        })
+        setCurrentEvents(keiks)
+    }, [eventTabItem])
+
+    useEffect(() => {
+        // const keiks = events.filter(event => {
+        //     if(event.type === studiesTabItem) {
+        //         return event
+        //     }
+        // })
+        // setCurrentEvents(keiks)
+    }, [studiesTabItem])
 
     return (
         <>
@@ -32,7 +84,7 @@ const Home = () => {
                                         icon={cloudIcon}
                                     />
                                     <Button
-                                        onClick={onExplore}
+                                        onClick={() => history('/introduction')}
                                         text="Explore Research"
                                     />
                                 </div>
@@ -97,28 +149,52 @@ const Home = () => {
                 </div>
             </section>
             
-            <section className="events">
-                <div className="heading__center">
-                    <Heading 
-                        text="Events"
-                    />
-                </div>
+            <section id="events" className="events" >
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="heading__center">
+                                <Heading 
+                                    text="Events"
+                                />
+                            </div>
 
-                <>
-                    <Link>https://en.wikipedia.org/wiki/Main_Page</Link>
-                </>
+                            <Tab
+                                items={eventTabItems}
+                                tabItem={eventTabItem}
+                                setTabItem={setEventTabItem}
+                                type="events"
+                            />
+
+                            <EventList events={currentEvents} eventTabItem={eventTabItem} />
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className="publications">
-                <div className="heading__center">
-                    <Heading 
-                        text="Studies and Publications"
-                    />
-                </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="heading__center">
+                                <Heading 
+                                    text="Studies and Publications"
+                                />
+                            </div>
 
-                <>
-                    <Link>https://en.wikipedia.org/wiki/Main_Page</Link>
-                </>
+                            <Tab
+                                items={studiesTabItems}
+                                tabItem={studiesTabItem}
+                                setTabItem={() => {}}
+                                type="studies"
+                            />
+
+                            {/* <>
+                                <Link>https://en.wikipedia.org/wiki/Main_Page</Link>
+                            </>       */}
+                        </div>
+                    </div>
+                </div>
             </section>
         </>
     )

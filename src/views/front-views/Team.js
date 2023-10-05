@@ -1,5 +1,5 @@
-import Heading from "../components/Heading";
-import Member from "../components/Member";
+import Heading from "../../components/Heading";
+import Member from "../../components/Member";
 
 const Team = () => {
 

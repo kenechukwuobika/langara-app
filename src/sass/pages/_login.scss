@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 8rem;
+    box-shadow: $cta-shadow;
+    padding: 6rem 0;
+    width: 60%;
+}
