@@ -13,7 +13,7 @@ const AppSideBar = props => {
 		<Menu
 			theme="light"
 			mode="inline"
-			style={{ height: "100%", borderRight: 0 }}
+			style={{ height: "100vh", borderRight: 0 }}
       	>
 			{props.navigation.map((menu) =>
 			menu.submenu.length > 0 ? (

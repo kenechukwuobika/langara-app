@@ -1,24 +1,31 @@
-import React, {useState, useEffect} from 'react'
-import { connect } from 'react-redux';
+import React, {useState, useEffect, useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import { Card, Table, Input, Menu, notification } from 'antd';
 import { EyeOutlined, SearchOutlined } from '@ant-design/icons';
+
 import EllipsisDropdown from 'components/shared-components/EllipsisDropdown';
 import Flex from 'components/shared-components/Flex'
+
+import { getEvents } from 'services/eventService';
+import EventContext from 'contexts/EventContext';
+
 import utils from 'utils';
-import { getEvents } from 'redux/actions/events';
 
 const EventList = (props) => {	
-	
-	const { getEvents, events } = props;
-	let history = useNavigate();
 	const [list, setList] = useState([]);
 	const [selectedRows, setSelectedRows] = useState([])
 	const [selectedRowKeys, setSelectedRowKeys] = useState([])
+	let history = useNavigate();
+
+    const { events, setEvents } = useContext(EventContext);
 
 	useEffect(() => {
-		getEvents();
-	}, [getEvents]);
+		(async () => {
+            const keiks = await getEvents();
+            setEvents(keiks)
+            console.log(keiks)
+        })()
+	}, []);
 
 	useEffect(() => {
 		setList(events)
@@ -36,39 +43,31 @@ const EventList = (props) => {
 	);
 	
 	const viewDetails = row => {
-		history.push(`/app/admin/bookings/edit/${row._id}`)
+		history.push(`/app/admin/events/edit/${row._id}`)
 	}
 
 	const tableColumns = [
 		{
-			title: 'Booking No',
-			dataIndex: '_id',
-			sorter: (a, b) => utils.antdTableSorter(a, b, '_id')
-		},
+            title: 'RowHead',
+            dataIndex: 'key',
+            rowScope: 'row',
+			sorter: (a, b) => utils.antdTableSorter(a, b, 'key')
+        },
+		
 		{
-			title: 'Total Amount',
-			dataIndex: 'totalAmount',
-			render: totalAmount => (
-				<>
-					{`$${utils.formatNumber(totalAmount)}`}
-				</>
-			),
-			sorter: (a, b) => utils.antdTableSorter(a, b, 'totalAmount')
+			title: 'Text',
+			dataIndex: 'text',
+			sorter: (a, b) => utils.antdTableSorter(a, b, 'text')
 		},
-		{
-			title: 'Status',
-			dataIndex: 'status',
-			sorter: (a, b) => utils.antdTableSorter(a, b, 'status')
+        {
+			title: 'Link',
+			dataIndex: 'link',
+			sorter: (a, b) => utils.antdTableSorter(a, b, 'link')
 		},
-		{
-			title: 'Booked by',
-			dataIndex: 'userID',
-			render: userID => (
-				<>
-					{`${userID.firstName} ${userID.lastName}`} 
-				</>
-			),
-			sorter: (a, b) => utils.antdTableSorter(a, b, 'userID')
+        {
+			title: 'Type',
+			dataIndex: 'type',
+			sorter: (a, b) => utils.antdTableSorter(a, b, 'type')
 		},
 		{
 			title: '',
@@ -112,17 +111,4 @@ const EventList = (props) => {
 	// return <Loading cover="content"/>	
 }
 
-
-
-
-function mapStateToProps({ bookingReducer }){
-	const { events } = bookingReducer;
-	return { events };
-}
-
-const mapDispatchToProps = { getEvents }
-
-export default connect(mapStateToProps, mapDispatchToProps
-)(EventList);
-
-// export default EventList;
+export default EventList;

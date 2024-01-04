@@ -1,41 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
 import {
     getAuth,
-    createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged
 } from "firebase/auth";
 
-import { app, db } from '../../services/firebaseService';
-import Heading from '../../components/Heading';
-
-// import axios from 'axios';
-
-// import APIURL from '../constants/apiUrl';
-// import Alert from '../Components/Alert';
-
-// import './pageStyles/login.css';
+import { app, db } from 'services/firebaseService';
+import Heading from 'components/Heading';
+import AuthContext from 'contexts/AuthContext';
 
 
 const LoginPage = () => {
     const history = useNavigate();
-    const testEmail = "ObikaForPresident2023@realvu.com";
-    const testPW = "ObikaForPresident2023";
-    const [email, setEmail] = useState(testEmail);
-    const [password, setPassword] = useState(testPW);
+    const { setAuthUser } = useContext(AuthContext);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const onFinish = async (values) => {
         console.log('Success:', values);
-        // const { email, password } = values;
+        const { email, password } = values;
         const auth = getAuth(app);
 
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const { user } = userCredential;
             if(user) {
-                localStorage.setItem("access_token", user.accessToken);
+                setAuthUser(user);
+                history('/app/events')
                 return true;
             }
             
@@ -57,30 +50,6 @@ const LoginPage = () => {
     const onChangePassword = (e) => {
         setPassword(e.target.value);
     }
-
-    // const onLogin = async () => {
-
-    //     if(email !== testEmail || password !== testPW) {
-
-    //     }
-
-    //     if(email && password) {
-    //         const response = await axios.post(`/api/v1/auth/login`, {
-    //             email, password
-    //         });
-
-    //         if(response && response.data.status==="success") {
-    //             const user = response.data.data.user
-    //             const token = response.data.token
-    
-    //             localStorage.setItem("isLoggedIn", true)
-    //             localStorage.setItem("setReloadMain", true)
-    //             localStorage.setItem("authUser", JSON.stringify(user));
-    //             localStorage.setItem("token", token);
-    //             window.location.href = "/";
-    //         }
-    //     }
-    // }
 
     return (
         <div className='container'>

@@ -1,20 +1,24 @@
-import React from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Route, Routes, BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import Events from 'views/app-views/events';
 import { Layout } from 'antd';
+import AuthContext from 'contexts/AuthContext';
 
 import AppHeader from '../components/layout-components/AppHeader';
 import AppSideBar from '../components/layout-components/AppSideBar';
 import navigationConfig from "../configs/NavigationConfig";
 
 const AppLayout = () => {
-    const token = localStorage.getItem("auth_token");
     const { Content } = Layout
-    // const history = useNavigate();
+    const history = useNavigate();
 
-    // if(!token) {
-    //     history('/login')
-    // }
+    const { authUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        if(!authUser) {
+            history('/login')
+        }
+    }, [authUser])
 
     return (
             <Layout>

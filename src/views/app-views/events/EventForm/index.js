@@ -27,7 +27,6 @@ const BookingForm = props => {
 
 	  useEffect(() => {
 		if(booking) {
-			console.log(booking.bookingItems)
 			setList(booking.bookingItems)
 		}
   	}, [booking]);

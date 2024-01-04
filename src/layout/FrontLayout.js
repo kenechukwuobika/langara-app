@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from '../views/front-views/Home';
 import Introduction from '../views/front-views/Introduction';
 import Result from '../views/front-views/Result';
@@ -9,8 +9,6 @@ import Login from '../views/front-views/Login';
 import Header from '../components/Header';
 
 const FrontLayout = () => {
-
-    const location = useLocation()
 
     return (
         <>

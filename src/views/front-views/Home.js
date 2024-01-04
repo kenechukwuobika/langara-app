@@ -1,36 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import FileSaver from 'file-saver';
 
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
-import Tab from "../../components/Tab";
+import Tab from "components/Tab";
 
-import cloudIcon from "../../assets/icons/Icon awesome-cloud-download-alt.svg";
-import teamImage from "../../assets/images/team_image.jpg";
-import EventList from "../../components/lists/EventList";
-import { useEffect } from "react";
+import cloudIcon from "assets/icons/Icon awesome-cloud-download-alt.svg";
+import teamImage from "assets/images/team_image.jpg";
+import EventList from "components/lists/EventList";
+import { getEvents } from "services/eventService";
 
 const Home = () => {
     const history = useNavigate();
     const { search } = useLocation();
     const [eventTabItem, setEventTabItem] = useState('past');
     const [studiesTabItem, setStudiesTabItem] = useState('past');
+    const [events, setEvents] = useState([]);
     const [currentEvents, setCurrentEvents] = useState(null);
 
     const eventTabItems = ['past', 'current', 'future'];
     const studiesTabItems = ['past', 'underway', 'planned'];
 
-    const events = [
-        {
-            text: "Presentation of Preliminary Results - June 22th 2021, Langara College Gendered experiences of South Asian international Students Studying in Two BC Colleges - March 25 th 2022, 24th Annual Metropolis Conference, Vancouver",
-            type: "past",
-        },
-        {
-            text: "24th Annual Metropolis Conference, Vancouver Gendered Experiences of South Asian international Students Studying in Two BC Colleges -  June 10th, 2022, Langara College",
-            type: "past",
-        }
-    ];
+    useEffect(() => {
+        (async () => {
+            const events = await getEvents()
+            setEvents(events)
+        })()
+    }, [])
+
 
     useEffect(() => {
         if(!search) {
@@ -50,13 +48,16 @@ const Home = () => {
     }, [search])
 
     useEffect(() => {
-        const keiks = events.filter(event => {
+        if(!events) {
+            return;
+        }
+        const flteredEvents = events.filter(event => {
             if(event.type === eventTabItem) {
                 return event
             }
         })
-        setCurrentEvents(keiks)
-    }, [eventTabItem])
+        setCurrentEvents(flteredEvents)
+    }, [eventTabItem, events])
 
     useEffect(() => {
         // const keiks = events.filter(event => {

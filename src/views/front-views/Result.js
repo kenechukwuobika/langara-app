@@ -242,8 +242,8 @@ const Result = () => {
 
             <table className="table" cellSpacing="0">
             <colgroup span="2"></colgroup>
-            <colgroup span="12" class="inbound"></colgroup>
-            <colgroup span="3" class="outbound"></colgroup>  
+            <colgroup span="12" className="inbound"></colgroup>
+            <colgroup span="3" className="outbound"></colgroup>  
                 {displayth1()}
             </table>    
         </section>
