@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import IconOpenMenu from '../assets/icons/Icon-material-menu.svg';
@@ -10,7 +10,6 @@ function Header() {
     const [sticky, setSticky] = useState('');
     const [active, setActive] = useState(false);
     const headerRef = useRef(null)
-    const location = useLocation();
 
     const { authUser } = useContext(AuthContext);
     
@@ -36,7 +35,7 @@ function Header() {
     const displayLinks = () => (
         links.map((link, index) => {
 
-            const { name, path, type } = link;
+            const { name, path } = link;
 
             const linkProps = {
                 onClick: () => setActive(false),

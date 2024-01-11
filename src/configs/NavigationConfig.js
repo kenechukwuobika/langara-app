@@ -1,13 +1,9 @@
 import { 
   DashboardOutlined,
-  UserSwitchOutlined,
   ShoppingOutlined,
   TagOutlined,
-  MoneyCollectOutlined,
   UserOutlined, 
-  LockOutlined,
-  PoweroffOutlined,
-  FileExclamationOutlined
+  LockOutlined
 } from '@ant-design/icons';
 import { APP_PREFIX_PATH } from './AppConfig'
 

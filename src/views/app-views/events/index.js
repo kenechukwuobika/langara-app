@@ -1,13 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import EventList from './event-list';
-import LoginPage from 'views/front-views/Login';
 import EventContext from 'contexts/EventContext';
 
 
 const Bookings = (props) => {
-    const { match } = props;
     const [events, setEvents] = useState(null);
 
     const data = {

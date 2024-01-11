@@ -62,9 +62,9 @@ const Introduction = () => {
 
                             <p className="overview__text">Results of the survey are summarized in the data tables in this section. They are grouped according to the sections in the questionnaire as follows:</p>
 
-                            {results && results.map(result => 
+                            {results && results.map((result, index) => 
                             
-                                (<Card text={result.text} onClick={() => history(`/results/${result.slug}`)} />)
+                                (<Card key={index} text={result.text} onClick={() => history(`/results/${result.slug}`)} />)
                             )}
                         </div>
 

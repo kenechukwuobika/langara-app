@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { useNavigate } from "react-router-dom";
-import { Card, Table, Input, Menu, notification } from 'antd';
+import { Card, Table, Input, Menu } from 'antd';
 import { EyeOutlined, SearchOutlined } from '@ant-design/icons';
 
 import EllipsisDropdown from 'components/shared-components/EllipsisDropdown';
@@ -13,8 +13,10 @@ import utils from 'utils';
 
 const EventList = (props) => {	
 	const [list, setList] = useState([]);
-	const [selectedRows, setSelectedRows] = useState([])
-	const [selectedRowKeys, setSelectedRowKeys] = useState([])
+	// const [selectedRows, setSelectedRows] = useState([])
+	const [
+        // selectedRowKeys,
+        setSelectedRowKeys] = useState([])
 	let history = useNavigate();
 
     const { events, setEvents } = useContext(EventContext);
@@ -25,7 +27,7 @@ const EventList = (props) => {
             setEvents(keiks)
             console.log(keiks)
         })()
-	}, []);
+	}, [setEvents]);
 
 	useEffect(() => {
 		setList(events)

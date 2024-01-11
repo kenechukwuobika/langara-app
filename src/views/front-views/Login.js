@@ -4,10 +4,10 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import {
     getAuth,
     signInWithEmailAndPassword,
-    onAuthStateChanged
+    // onAuthStateChanged
 } from "firebase/auth";
 
-import { app, db } from 'services/firebaseService';
+import { app } from 'services/firebaseService';
 import Heading from 'components/Heading';
 import AuthContext from 'contexts/AuthContext';
 
@@ -15,8 +15,8 @@ import AuthContext from 'contexts/AuthContext';
 const LoginPage = () => {
     const history = useNavigate();
     const { setAuthUser } = useContext(AuthContext);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
 
     const onFinish = async (values) => {
         console.log('Success:', values);
@@ -43,13 +43,13 @@ const LoginPage = () => {
     console.log('Failed:', errorInfo);
     };
 
-    const onChangeEmail = (e) => {
-        setEmail(e.target.value);
-    }
+    // const onChangeEmail = (e) => {
+    //     setEmail(e.target.value);
+    // }
 
-    const onChangePassword = (e) => {
-        setPassword(e.target.value);
-    }
+    // const onChangePassword = (e) => {
+    //     setPassword(e.target.value);
+    // }
 
     return (
         <div className='container'>

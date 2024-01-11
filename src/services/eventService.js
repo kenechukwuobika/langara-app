@@ -1,7 +1,7 @@
-import { doc, getDocs, addDoc, collection, query, where } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import { notification } from 'antd';
 
-import { app, db } from 'services/firebaseService';
+import { db } from 'services/firebaseService';
 
 
 export const getEvents = async () => {

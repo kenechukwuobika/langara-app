@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Route, Routes, BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Events from 'views/app-views/events';
 import { Layout } from 'antd';
 import AuthContext from 'contexts/AuthContext';
@@ -18,7 +18,7 @@ const AppLayout = () => {
         if(!authUser) {
             history('/login')
         }
-    }, [authUser])
+    }, [authUser, history])
 
     return (
             <Layout>
