@@ -1,47 +1,32 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
-import {
-    getAuth,
-    onAuthStateChanged
-} from "firebase/auth";
+import { useState } from 'react';
+import { Route, Routes, HashRouter as Router } from 'react-router-dom';
 
-import AppLayout from 'layout/AppLayout';
-import FrontLayout from 'layout/FrontLayout';
-import AuthContext from 'contexts/AuthContext';
+import EventContext from 'contexts/EventContext';
+
+import Home from 'views/Home';
+import Introduction from 'views/Introduction';
+import Result from 'views/Result';
+import Team from 'views/Team';
+
+import Header from 'components/Header';
 
 function App() {
 
-    const [token, setToken] = useState(null);
-    const [authUser, setAuthUser] = useState(null);
-
-    const getToken = () => {
-        const result = localStorage.getItem('auth_token');
-        setToken(result)
-    }
-
-    useEffect(() => {
-        getToken()
-    }, [])
-
-    useEffect(() => {
-        const auth = getAuth();
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                setAuthUser(user)
-            } 
-        });
-        
-    }, [token])
+    const [events, setEvents] = useState([]);
 
     return (
-        <AuthContext.Provider value={{ authUser, setAuthUser }}>
+        <EventContext.Provider value={{ events, setEvents }}>
             <Router>
+                <Header />
+                
                 <Routes>
-                    <Route path='/*' element={<FrontLayout />} />
-                    <Route path='/app/*' element={<AppLayout />} />
+                    <Route path='/' Component={Home} />
+                    <Route path='/introduction' Component={Introduction} />
+                    <Route path='/results/:query' Component={Result} />
+                    <Route path='/team' Component={Team} />
                 </Routes>
             </Router>
-        </AuthContext.Provider>
+        </EventContext.Provider>
     );
 }
 

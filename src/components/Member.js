@@ -1,4 +1,4 @@
-import img from '../assets/images/ryan-hoffman-Ft4p5E9HjTQ-unsplash.png'
+import img from 'assets/images/ryan-hoffman-Ft4p5E9HjTQ-unsplash.png'
 
 const Member = (props) => {
 

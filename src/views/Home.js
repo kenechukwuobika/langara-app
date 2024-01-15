@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import FileSaver from 'file-saver';
 
-import Button from "../../components/Button";
-import Heading from "../../components/Heading";
+import Button from "components/Button";
+import Heading from "components/Heading";
 import Tab from "components/Tab";
 
 import cloudIcon from "assets/icons/Icon awesome-cloud-download-alt.svg";
@@ -51,6 +51,7 @@ const Home = () => {
         if(!events) {
             return;
         }
+
         const flteredEvents = events.filter(event => {
             if(event.type === eventTabItem) {
                 return event

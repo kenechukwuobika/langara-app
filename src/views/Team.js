@@ -1,5 +1,5 @@
-import Heading from "../../components/Heading";
-import Member from "../../components/Member";
+import Heading from "components/Heading";
+import Member from "components/Member";
 
 const Team = () => {
 
@@ -58,8 +58,8 @@ const Team = () => {
                 </div>
 
                 <div className="row-xl">
-                    {arr && arr.map(item => (
-                        <div className="col-3">
+                    {arr && arr.map((item, index) => (
+                        <div key={index} className="col-3">
                             <Member 
                                 name={item.name}
                                 title={item.title}

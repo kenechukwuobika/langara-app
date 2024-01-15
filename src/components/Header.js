@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-import IconOpenMenu from '../assets/icons/Icon-material-menu.svg';
-import AuthContext from 'contexts/AuthContext';
+import IconOpenMenu from 'assets/icons/Icon-material-menu.svg';
 
 function Header() {
 
@@ -11,7 +10,6 @@ function Header() {
     const [active, setActive] = useState(false);
     const headerRef = useRef(null)
 
-    const { authUser } = useContext(AuthContext);
     
     const links = [
         {
@@ -67,15 +65,17 @@ function Header() {
         }
     }
 
+    const openMenu = () => {
+        setActive(true);
+    }
+
+    // const isL
+
     useEffect(() => {
         window.onscroll = () => {
             triggerSticky();
         };
     }, []);
-
-    const openMenu = () => {
-        setActive(true);
-    }
 
     return (
         <header className={`header ${sticky}`} id='header' ref={headerRef}>
@@ -97,7 +97,6 @@ function Header() {
 
                         <div className='nav__cta--container'>
                             <Link className="nav__cta" to="mailto:email@example.com">Contact us</Link>
-                            {authUser && <Link className="nav__cta--link" to="/app/events">Dashboard</Link>}
                         </div>
                     </nav>
                 </div>

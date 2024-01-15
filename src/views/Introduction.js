@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-import Card from "../../components/Card";
-import Heading from "../../components/Heading";
-import sample1 from "../../assets/images/sample1.png";
-import sample2 from "../../assets/images/sample2.png";
+import Card from "components/Card";
+import Heading from "components/Heading";
+import sample1 from "assets/images/sample1.png";
+import sample2 from "assets/images/sample2.png";
 
 const Introduction = () => {
 

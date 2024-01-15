@@ -3,10 +3,21 @@ import React, { createContext } from 'react';
 const EventContext = createContext();
 
 export const EventProvider = (props) => {
-    const { data, children } = props;
+    const { 
+        events,
+        setEvents,
+        event,
+        setEvent, 
+        children 
+    } = props;
 
     return (
-        <EventContext.Provider value={{...data}}>
+        <EventContext.Provider value={{
+            events,
+            setEvents,
+            event,
+            setEvent
+        }}>
             {children}
         </EventContext.Provider>
     );

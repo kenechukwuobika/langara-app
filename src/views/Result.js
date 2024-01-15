@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Heading from "../../components/Heading";
-import Card from "../../components/Card";
+import Heading from "components/Heading";
+import Card from "components/Card";
 
 const Result = () => {
     // const results = [
