@@ -21,6 +21,7 @@ const Home = () => {
 
     const eventTabItems = ['past', 'current', 'future'];
     const studiesTabItems = ['past', 'underway', 'planned'];
+    const researchFileName = "International-Students-Project-A-Statistical-Profile-Final.pdf";
 
     useEffect(() => {
         (async () => {
@@ -82,7 +83,10 @@ const Home = () => {
                                 <div className="banner__btn">
                                     <Button
                                         onClick={() => FileSaver.saveAs(
-                                            process.env.PUBLIC_URL + "/documents/test-pdf.pdf")}
+                                            `${process.env.PUBLIC_URL}/documents/${researchFileName}`,
+                                            researchFileName
+                                            )
+                                        }
                                         isHollow="true"
                                         text="Download PDF"
                                         icon={cloudIcon}
