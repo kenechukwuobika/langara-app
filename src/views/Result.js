@@ -1,176 +1,52 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+
 import Heading from "components/Heading";
 import Card from "components/Card";
+import Tab from "components/Tab";
+import Button from "components/Button";
+
+import education from "data/education";
+import employment from "data/employment";
+import housing from "data/housing";
+import immigration from "data/immigration";
+import wellbeing from "data/wellbeing";
+import about from "data/about";
 
 const Result = () => {
-    // const results = [
-    //     {
-    //         slug: "education",
-    //         text: "Education - Study experience in Canada (Q2 - Q15)",
-    //         description: "This section reports responses to Question 2 to Question 15 in the survey and is about respondents’ education background and program details formerly or currently enrolled in Canada. Please refer to Section 2.1 for an example on how these tables should be read and understood.",
-    //         questions: [
-    //             {
-    //                 number: 2,
-    //                 text: "Please indicate the last educational institution you attended. If you are currently a student, please indicate your current institution.",
-    //                 answers: {
-    //                     college: [
-    //                         {
-    //                             type: "th1",
-    //                             colSpan: 3,
-    //                             data: ["Strata", "1.CNC", "2.Langara", "3.Other", "4.PNA/DNA", "Total"],
-    //                         },
-    //                         {
-    //                             type: "th2",
-    //                             colSpan: 1,
-    //                             data: ["", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Est. Prop. Proportion", "ME"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             colSpan: 1,
-    //                             data: ["1.One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             colSpan: 1,
-    //                             data: ["2.More than One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             colSpan: 1,
-    //                             data: ["3.PNA/DNA", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             colSpan: 3,
-    //                             data: ["Total", "650", "403", "300", "344", "829"],
-    //                         },
-    //                     ],
-        
-    //                     gender: [
-    //                         {
-    //                             type: "th1",
-    //                             data: ["Strata", "1.CNC", "2.Langara", "3.Other", "4.PNA/DNA", "Total"],
-    //                         },
-    //                         {
-    //                             type: "th2",
-    //                             data: ["", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             data: ["1.One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             data: ["2.More than One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             data: ["3.PNA/DNA", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-    //                         },
-    //                         {
-    //                             type: "td",
-    //                             data: ["Total", "650", "403", "300", "344"],
-    //                         },
-    //                     ]
-    //                 }
-    //             }
-    //         ],
-    //     }
-    // ];
-
-    const results1 = [
-        {
-            slug: "education",
-            text: "Education - Study experience in Canada (Q2 - Q15)",
-            description: "This section reports responses to Question 2 to Question 15 in the survey and is about respondents’ education background and program details formerly or currently enrolled in Canada. Please refer to Section 2.1 for an example on how these tables should be read and understood.",
-            questions: [
-                {
-                    number: 2,
-                    text: "Please indicate the last educational institution you attended. If you are currently a student, please indicate your current institution.",
-                    answers: {
-                        college: [
-                            {
-                                type: "th1",
-                                colSpan: 3,
-                                data: ["Strata", "1.CNC", "2.Langara", "3.Other", "4.PNA/DNA", "Total"],
-                            },
-                            {
-                                type: "th2",
-                                colSpan: 1,
-                                data: ["", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Est. Prop. Proportion", "ME"],
-                            },
-                            {
-                                type: "td",
-                                colSpan: 1,
-                                data: ["1.One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                colSpan: 1,
-                                data: ["2.More than One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                colSpan: 1,
-                                data: ["3.PNA/DNA", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                colSpan: 3,
-                                data: ["Total", "650", "403", "300", "344", "829"],
-                            },
-                        ],
-        
-                        gender: [
-                            {
-                                type: "th1",
-                                data: ["Strata", "1.He/him/his", "2.She/her/hers", "3.They/them/their", "4.PNA/DNA", "Total"],
-                            },
-                            {
-                                type: "th2",
-                                data: ["", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME", "Count", "Percent", "ME"],
-                            },
-                            {
-                                type: "td",
-                                data: ["1.One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                data: ["2.More than One", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                data: ["3.PNA/DNA", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%", "650", "93.12%", "1.92%"],
-                            },
-                            {
-                                type: "td",
-                                data: ["Total", "650", "403", "300", "344"],
-                            },
-                        ]
-                    }
-                }
-            ],
-        }
-    ];
-
     let { query } = useParams();
-    const [ result,  ] = useState(results1.find( result => result.slug === query));
-    const [ currentQuestion, setCurrentQuestion ] = useState([]);
+    const { search } = useLocation();
+    const filters = ["college", "gender"]
+    const results = [education, employment, housing, immigration, wellbeing, about]
 
-    // useEffect(() => {
-    //     const currentResult = results.find( result => result.slug === query)
-    //     setResult(currentResult)
-    // }, [])
+    const [ result,  ] = useState(results.find( result => result.slug === query));
+    const [ currentQuestion, setCurrentQuestion ] = useState([]);
+    const [ currentQuestionIndex, setCurrentQuestionIndex ] = useState(0);
+    const [ filter, setFilter ] = useState(filters[0]);
+
+    useEffect(() => {
+        if(!search) {
+            return;
+        }
+
+        const searchValue = search.toLowerCase().split('=')[1];
+
+        if(search.includes('filter')) {
+            setFilter(searchValue)
+        }
+    }, [search])
 
     useEffect(() => {
         if(result) {
-            setCurrentQuestion(result.questions[0])
+            setCurrentQuestion(result.questions[currentQuestionIndex])
         }
-    }, [result])
+    }, [result, currentQuestionIndex])
 
     const displayth1 = () => {
-        return currentQuestion?.answers?.gender.map(tr => {
+        if(!currentQuestion || currentQuestion.length === 0) {
+            return(<></>)
+        }
+        return currentQuestion["answers"][filter]?.data.map((tr, index) => {
             let className = ""
             if(tr.type === "th1") {
                 className = "th1"
@@ -180,24 +56,52 @@ const Result = () => {
                 className = "td"
             }
             return (
-                <tr className={className}>
+                <tr key={index} className={className}>
                     {tr?.data.map((td, index) => {
                         if(tr.type === "th1") {
                             if(index === 0) {
-                                return (<th colSpan={1}>{td}</th>)
+                                return (<th key={index} colSpan={1}>{td}</th>)
                             }
-                            return (<th colSpan={3}>{td}</th>)
+                            return (<th key={index} colSpan={3}>{td}</th>)
                         }
                         else if(tr.type === "th2") {
-                            return (<th colSpan={tr?.colSpan}>{td}</th>)
+                            return (<th key={index} colSpan={tr?.colSpan}>{td}</th>)
                         }else {
-                            return (<td colSpan={tr?.colSpan}>{td}</td>)
+                            if(index === 0) {
+                                return (<td key={index} colSpan={1}>{td}</td>)
+                            }
+                            return (<td key={index} colSpan={tr?.colSpan}>{td}</td>)
 
                         }
                     })}
                 </tr>
             )
         })
+    }
+
+    const displayColgroups = () => {
+        if(!currentQuestion || currentQuestion.length === 0) {
+            return(<></>)
+        }
+        return currentQuestion["answers"][filter]?.colgroups.map((col, index) => {
+            return (
+                <colgroup key={index} span={col} className="colgroup"></colgroup>
+            )
+        })
+    }
+
+    const nextQuestion = () => {
+        if(currentQuestionIndex >= result.questions.length) {
+            return;
+        }
+        setCurrentQuestionIndex(currentQuestionIndex+1)
+    }
+
+    const prevQuestion = () => {
+        if(currentQuestionIndex <= 0) {
+            return;
+        }
+        setCurrentQuestionIndex(currentQuestionIndex-1)
     }
 
 
@@ -213,7 +117,7 @@ const Result = () => {
                         <div className="intro__content">
                             <div className="heading__center">
                                 <Heading
-                                    text={result.text}
+                                    text={`${result.text}`}
                                 />
                             </div>
 
@@ -229,9 +133,39 @@ const Result = () => {
                             </div>
 
                         <Card
-                            title={currentQuestion.number}
+                            number={currentQuestion.number}
                             text={currentQuestion.text}
                         />
+
+                            <div className="result__tab">
+                                <Tab
+                                    items={filters}
+                                    tabItem={filter}
+                                    setTabItem={setFilter}
+                                    type="filter"
+                                />
+                            </div>
+
+                            <div className="result__ctas">
+                                    {currentQuestionIndex > 0 &&
+                                        <div className="result__prev">
+                                            <Button
+                                                onClick={prevQuestion}
+                                                text="Previous"
+                                            />
+                                        </div>
+                                    }
+
+                                    {currentQuestionIndex < result.questions.length-1 &&
+                                        <div className="result__next">
+                                            <Button
+                                                onClick={nextQuestion}
+                                                text="Next"
+                                            />
+                                        </div>
+                                    }
+
+                            </div>
                             
                         </div>
                     </div>
@@ -240,12 +174,14 @@ const Result = () => {
             </div>
 
 
-            <table className="table" cellSpacing="0">
-            <colgroup span="2"></colgroup>
-            <colgroup span="12" className="inbound"></colgroup>
-            <colgroup span="3" className="outbound"></colgroup>  
-                {displayth1()}
-            </table>    
+            <div className="table__container">
+                <table className="table" cellSpacing="0">    
+                    {displayColgroups()}
+                    <tbody>
+                        {displayth1()}
+                    </tbody>
+                </table>
+            </div>
         </section>
     )
 }

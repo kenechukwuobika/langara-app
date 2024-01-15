@@ -9,7 +9,7 @@
         border: none;
         cursor: pointer;
 
-        &:not(:last-of-type) {
+        &:not(:last-child) {
             margin-bottom: 4rem;
         }
 

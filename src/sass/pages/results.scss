@@ -1,9 +1,41 @@
+.result {
+    &__tab {
+        margin: 6rem 0;
+    }
+
+    &__ctas {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__next {
+        align-self: flex-end;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__prev {
+        align-self: flex-start;
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
 .table {
     width: 100%;
     empty-cells: hide;
     padding: 0 2rem;
-    border-collapse:separate;
+    border-collapse: collapse;
     border-spacing:0 20px;
+    font-size: 1.6rem;
+    margin-top: 4rem;
+
+    &__container {
+        max-width: 100%;
+        overflow-x: scroll;
+    }
 }
 
 .th1 {
@@ -28,4 +60,8 @@
 
 td {
     padding: 2rem;
+}
+
+.colgroup:not(:first-child) {
+    border-left: 14px solid white;
 }
